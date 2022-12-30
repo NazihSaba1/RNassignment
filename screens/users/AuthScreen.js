@@ -1,5 +1,4 @@
 import React, {useState, useReducer, useCallback} from 'react';
-import axios from 'axios';
 import {
   ScrollView,
   View,
@@ -8,19 +7,17 @@ import {
   Button,
   ActivityIndicator,
   Alert,
-  Pressable,
   Text,
-  TextInput,
-  RefreshControl,
 } from 'react-native';
+import axios from 'axios';
 
 import {useDispatch} from 'react-redux';
-import {SET_ARTICLES, SET_TOKEN} from '../../redux/actions';
+import {SET_TOKEN} from '../../redux/actions';
 
 import Input from '../../components/UI/Input';
 import Card from '../../components/UI/Card';
 import Colors from '../../constants/Colors';
-import {useNavigation} from '@react-navigation/native';
+
 import {useFocusEffect} from '@react-navigation/native';
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
@@ -121,10 +118,7 @@ const AuthScreen = ({navigation}, props) => {
       style={styles.screen}>
       <View style={styles.logoContainer}>
         <View style={styles.artCont}>
-          <Text style={styles.artText}>Art</Text>
-        </View>
-        <View>
-          <Text style={styles.artText2}>icles</Text>
+          <Text style={styles.artText}>Articles</Text>
         </View>
       </View>
       <Card style={styles.authContainer}>
@@ -155,6 +149,7 @@ const AuthScreen = ({navigation}, props) => {
             ) : (
               <Button
                 title="Login"
+                testID="signinButton"
                 color={Colors.primary}
                 onPress={authHandler}
               />
@@ -204,13 +199,13 @@ const styles = StyleSheet.create({
   artCont: {
     backgroundColor: Colors.primary,
     height: 60,
-    width: 70,
-    borderTopLeftRadius: 10,
+
+    borderTopLeftRadius: 20,
   },
   artText: {
     margin: 10,
     fontSize: 25,
-    marginLeft: 16,
+
     fontFamily: 'serif',
     fontWeight: 'bold',
   },
