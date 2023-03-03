@@ -3,7 +3,7 @@ export const SET_ARTICLES = 'SET_ARTICLES';
 export const REMOVE_TOKEN = 'REMOVE_TOKEN';
 
 export const setToken = token => dispatch => {
-  console.log('hon l token mafroud', token);
+
   dispatch({
     type: SET_TOKEN,
     payload: token,
